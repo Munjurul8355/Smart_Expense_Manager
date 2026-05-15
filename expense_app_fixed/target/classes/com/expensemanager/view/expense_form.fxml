@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox alignment="CENTER" spacing="20.0"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.expensemanager.controller.ExpenseController"
+      styleClass="main-content">
+
+    <VBox spacing="20" styleClass="card" maxWidth="500">
+        <padding>
+            <Insets top="30" right="30" bottom="30" left="30"/>
+        </padding>
+
+        <!-- Title row — icon and label have fx:id so controller can update them -->
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <VBox fx:id="formIconBox" styleClass="icon-badge-blue"
+                  style="-fx-padding: 8; -fx-background-radius: 8;">
+                <FontIcon fx:id="formIcon" iconLiteral="fas-plus" iconSize="16" iconColor="#4F46E5"/>
+            </VBox>
+            <Label fx:id="formTitleLabel" text="Add New Transaction"
+                   styleClass="section-title" style="-fx-font-size: 20px;"/>
+        </HBox>
+
+        <VBox spacing="15">
+            <HBox spacing="15">
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Transaction Type" styleClass="field-label" style="-fx-font-weight: bold;"/>
+                    <ComboBox fx:id="typeComboBox" maxWidth="Infinity"/>
+                </VBox>
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Category" styleClass="field-label" style="-fx-font-weight: bold;"/>
+                    <ComboBox fx:id="categoryComboBox" maxWidth="Infinity"/>
+                    <TextField fx:id="customCategoryField" promptText="Enter custom category"
+                               visible="false" managed="false"/>
+                </VBox>
+            </HBox>
+
+            <HBox spacing="15">
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Amount" styleClass="field-label" style="-fx-font-weight: bold;"/>
+                    <TextField fx:id="amountField" promptText="0.00"/>
+                </VBox>
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Date" styleClass="field-label" style="-fx-font-weight: bold;"/>
+                    <DatePicker fx:id="datePicker" maxWidth="Infinity"/>
+                </VBox>
+            </HBox>
+
+            <VBox spacing="5">
+                <Label text="Note (Optional)" styleClass="field-label" style="-fx-font-weight: bold;"/>
+                <TextArea fx:id="noteArea" prefRowCount="3" promptText="Add description..."
+                          style="-fx-background-color: transparent;"/>
+            </VBox>
+        </VBox>
+
+        <Label fx:id="errorLabel" textFill="RED" wrapText="true"/>
+
+        <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding: 10 0 0 0;">
+            <Button onAction="#handleCancel" text="Cancel"
+                    styleClass="field-label" style="-fx-background-color: transparent; -fx-cursor: hand;"/>
+            <Button fx:id="saveButton" defaultButton="true" onAction="#handleSave"
+                    styleClass="btn-primary" text="Save Transaction">
+                <graphic><FontIcon iconLiteral="fas-check" iconColor="white"/></graphic>
+            </Button>
+        </HBox>
+    </VBox>
+</VBox>

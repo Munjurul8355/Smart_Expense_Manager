@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox fx:id="sidebar" styleClass="sidebar"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.expensemanager.controller.SidebarController"
+      prefWidth="230" minWidth="230" maxWidth="230">
+
+    <!-- Logo Header -->
+    <HBox alignment="CENTER_LEFT" spacing="12"
+          style="-fx-padding: 28 18 22 18;">
+        <VBox alignment="CENTER"
+              style="-fx-background-color: linear-gradient(to bottom right, #4F46E5, #7C3AED);
+                     -fx-background-radius: 12; -fx-padding: 10 12;">
+            <FontIcon iconLiteral="fas-wallet" iconSize="20" iconColor="white"/>
+        </VBox>
+        <VBox spacing="2">
+            <Label text="Smart Expense"
+                   style="-fx-text-fill: white; -fx-font-size: 15px; -fx-font-weight: bold;"/>
+            <Label text="Manager"
+                   style="-fx-text-fill: #818CF8; -fx-font-size: 11px; -fx-font-weight: 600;"/>
+        </VBox>
+    </HBox>
+
+    <Separator style="-fx-opacity: 0.12; -fx-padding: 0;"/>
+
+    <!-- MENU label -->
+    <Label text="MENU"
+           style="-fx-text-fill: #475569; -fx-font-size: 10px; -fx-font-weight: bold;
+                  -fx-padding: 16 18 6 18;"/>
+
+    <!-- Menu Items -->
+    <VBox VBox.vgrow="ALWAYS" spacing="3" style="-fx-padding: 4 10 10 10;">
+
+        <!-- Dashboard -->
+        <HBox fx:id="menuDashboard" styleClass="menu-item"
+              onMouseClicked="#handleDashboard" alignment="CENTER_LEFT"
+              style="-fx-cursor: hand; -fx-background-radius: 10; -fx-padding: 13 15; -fx-spacing: 12;">
+            <VBox alignment="CENTER"
+                  style="-fx-background-color: rgba(99,102,241,0.15); -fx-background-radius: 8;
+                         -fx-padding: 7; -fx-min-width: 32; -fx-min-height: 32; -fx-max-width: 32; -fx-max-height: 32;">
+                <FontIcon iconLiteral="fas-tachometer-alt" iconSize="14" iconColor="#818CF8"/>
+            </VBox>
+            <Label text="Dashboard"
+                   style="-fx-text-fill: #CBD5E1; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+        </HBox>
+
+        <!-- Reports -->
+        <HBox fx:id="menuReports" styleClass="menu-item"
+              onMouseClicked="#handleReports" alignment="CENTER_LEFT"
+              style="-fx-cursor: hand; -fx-background-radius: 10; -fx-padding: 13 15; -fx-spacing: 12;">
+            <VBox alignment="CENTER"
+                  style="-fx-background-color: rgba(168,85,247,0.15); -fx-background-radius: 8;
+                         -fx-padding: 7; -fx-min-width: 32; -fx-min-height: 32; -fx-max-width: 32; -fx-max-height: 32;">
+                <FontIcon iconLiteral="fas-chart-bar" iconSize="14" iconColor="#C084FC"/>
+            </VBox>
+            <Label text="Reports"
+                   style="-fx-text-fill: #CBD5E1; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+        </HBox>
+
+        <!-- Summary -->
+        <HBox fx:id="menuSummary" styleClass="menu-item"
+              onMouseClicked="#handleSummary" alignment="CENTER_LEFT"
+              style="-fx-cursor: hand; -fx-background-radius: 10; -fx-padding: 13 15; -fx-spacing: 12;">
+            <VBox alignment="CENTER"
+                  style="-fx-background-color: rgba(16,185,129,0.15); -fx-background-radius: 8;
+                         -fx-padding: 7; -fx-min-width: 32; -fx-min-height: 32; -fx-max-width: 32; -fx-max-height: 32;">
+                <FontIcon iconLiteral="fas-file-alt" iconSize="14" iconColor="#34D399"/>
+            </VBox>
+            <Label text="Summary"
+                   style="-fx-text-fill: #CBD5E1; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+        </HBox>
+
+        <Region VBox.vgrow="ALWAYS"/>
+
+        <!-- Dark Mode Toggle -->
+        <VBox style="-fx-padding: 4 4 8 4;">
+            <ToggleButton fx:id="darkModeToggle" text="🌙 Dark" maxWidth="Infinity"
+                          styleClass="dark-mode-toggle"/>
+        </VBox>
+
+        <!-- Account Section -->
+        <VBox style="-fx-background-color: rgba(255,255,255,0.05); -fx-background-radius: 14;
+                     -fx-padding: 12 14; -fx-spacing: 4; -fx-border-color: rgba(255,255,255,0.07);
+                     -fx-border-radius: 14; -fx-border-width: 1;">
+            <VBox.margin><Insets bottom="6"/></VBox.margin>
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <VBox alignment="CENTER"
+                      style="-fx-background-color: linear-gradient(to bottom right,#4F46E5,#7C3AED);
+                             -fx-background-radius: 20;
+                             -fx-min-width: 36; -fx-min-height: 36;
+                             -fx-max-width: 36; -fx-max-height: 36;">
+                    <FontIcon iconLiteral="fas-user" iconSize="15" iconColor="white"/>
+                </VBox>
+                <VBox spacing="2">
+                    <Label text="Account"
+                           style="-fx-text-fill: #64748B; -fx-font-size: 10px; -fx-font-weight: 700;"/>
+                    <Label fx:id="sidebarAccountLabel" text="username"
+                           style="-fx-text-fill: #E2E8F0; -fx-font-size: 13px; -fx-font-weight: bold;"/>
+                </VBox>
+            </HBox>
+        </VBox>
+
+        <!-- Logout -->
+        <HBox fx:id="menuLogout" styleClass="menu-item"
+              onMouseClicked="#handleLogout" alignment="CENTER_LEFT"
+              style="-fx-cursor: hand; -fx-background-radius: 10; -fx-padding: 13 15; -fx-spacing: 12;">
+            <VBox alignment="CENTER"
+                  style="-fx-background-color: rgba(248,113,113,0.12); -fx-background-radius: 8;
+                         -fx-padding: 7; -fx-min-width: 32; -fx-min-height: 32; -fx-max-width: 32; -fx-max-height: 32;">
+                <FontIcon iconLiteral="fas-sign-out-alt" iconSize="14" iconColor="#F87171"/>
+            </VBox>
+            <Label text="Logout"
+                   style="-fx-text-fill: #F87171; -fx-font-size: 14px; -fx-font-weight: bold;"/>
+        </HBox>
+
+    </VBox>
+</VBox>

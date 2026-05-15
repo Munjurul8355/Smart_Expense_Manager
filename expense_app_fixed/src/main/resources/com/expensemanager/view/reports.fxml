@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.expensemanager.controller.ReportController"
+            stylesheets="/css/style.css"
+            styleClass="main-content">
+
+    <!-- Shared sidebar -->
+    <left>
+        <fx:include source="sidebar.fxml"/>
+    </left>
+
+    <center>
+        <VBox alignment="CENTER" spacing="20.0">
+            <VBox spacing="20" styleClass="card" maxWidth="420" alignment="CENTER">
+                <padding>
+                    <Insets top="40" right="40" bottom="40" left="40"/>
+                </padding>
+
+                <VBox styleClass="icon-badge-blue"
+                      style="-fx-padding: 15; -fx-background-radius: 50;" alignment="CENTER">
+                    <FontIcon iconLiteral="fas-file-pdf" iconSize="32" iconColor="#4F46E5"/>
+                </VBox>
+
+                <VBox alignment="CENTER" spacing="5">
+                    <Label text="Export Report" styleClass="page-heading"
+                           style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+                    <Label text="Download your transaction history as PDF"
+                           styleClass="text-muted" wrapText="true"/>
+                </VBox>
+
+                <Button onAction="#handleMonthlyReport" styleClass="btn-primary"
+                        text="Download Monthly Report" maxWidth="Infinity">
+                    <graphic><FontIcon iconLiteral="fas-calendar-alt" iconColor="white"/></graphic>
+                    <font><Font size="14.0"/></font>
+                </Button>
+
+                <Button onAction="#handleYearlyReport" maxWidth="Infinity"
+                        style="-fx-background-color: linear-gradient(to bottom right, #0EA5E9, #3B82F6);
+                               -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 12;
+                               -fx-padding: 11 24; -fx-effect: dropshadow(gaussian, rgba(14,165,233,0.4), 10, 0, 0, 4);
+                               -fx-cursor: hand; -fx-border-color: transparent;
+                               -fx-focus-color: transparent; -fx-faint-focus-color: transparent;"
+                        text="Download Yearly Report">
+                    <graphic><FontIcon iconLiteral="fas-calendar" iconColor="white"/></graphic>
+                    <font><Font size="14.0"/></font>
+                </Button>
+
+                <Label fx:id="statusLabel" textFill="GREEN" wrapText="true" textAlignment="CENTER"/>
+            </VBox>
+        </VBox>
+    </center>
+
+</BorderPane>
