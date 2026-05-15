@@ -161,5 +161,5 @@ This project is for academic and personal use.
 ---
 
 <div align="center">
-Made with ❤️ by <a href="https://github.com/Munjurul8355">Munjurul</a> and <a href=<a href="https://github.com>
+Made with ❤️ by <a href="https://github.com/Munjurul8355">Munjurul</a> and <a href="https://github.com/Murad-08">Murad</a>
 </div>
